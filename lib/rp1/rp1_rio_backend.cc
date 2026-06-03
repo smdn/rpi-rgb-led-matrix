@@ -116,7 +116,7 @@ static inline void ClockSetupDelay(int slowdown) {
 }
 
 static inline void IoStoreBarrier() {
-#if defined(__arm__) || defined(__aarch64__)
+#if defined(__ARM_ARCH) && __ARM_ARCH >= 7
   asm volatile("dmb ishst" ::: "memory");
 #endif
 }
